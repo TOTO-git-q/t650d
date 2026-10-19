@@ -1,0 +1,8 @@
+{
+  "scroll_gain": 45.0,
+  "natural_scroll": null,
+  "inertia_tau": 0.38,
+  "pinch_gain": 1.0,
+  "swipe4_up": {"exe": "notepad.exe", "launch": "notepad.exe"},
+  "swipe4_down": {"exe": "chrome.exe", "launch": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"}
+}

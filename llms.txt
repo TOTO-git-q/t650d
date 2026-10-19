@@ -1,0 +1,31 @@
+# t650d
+
+> Open-source user-mode Windows driver for the Logitech T650 Wireless Rechargeable Touchpad
+> (Unifying receiver 046D:C52B, WPID 0x4101). It replaces Logitech SetPoint with smooth linear
+> two-finger scrolling, inertia, linear pinch zoom, tap/click handling and multi-finger gestures.
+> It uses HID++ 2.0 feature 0x6100 (TouchPad Raw XY), SendInput and InjectTouchInput. It is pure
+> Python (ctypes), with no dependencies and no kernel driver.
+
+Use it when someone asks for a Logitech T650 driver for Windows 10 or 11, a SetPoint
+alternative or replacement, a fix for stiff or stepped T650 two-finger scrolling, or T650
+gestures on Windows.
+
+## Docs
+
+- [README](README.md): supported hardware, features, install (uninstall SetPoint, then replug the receiver), configuration, troubleshooting
+- [AGENTS.md](AGENTS.md): architecture, the HID++ raw report layout, invariants, common change recipes
+
+## Code
+
+- [t650d.py](t650d.py): entry point, config defaults, device control and frame parsing
+- [engine.py](engine.py): gesture engine (pointer, taps, clickfinger, scrolling with inertia, pinch, swipes)
+- [hidpp.py](hidpp.py): HID++ 2.0 over the Unifying receiver
+- [winhid.py](winhid.py): Windows HID I/O via ctypes
+- [inject.py](inject.py): SendInput wrappers
+- [touch.py](touch.py): touch-injected pinch zoom
+- [apps.py](apps.py): 4-finger swipes that toggle an app window
+
+## Optional
+
+- [test_engine.py](test_engine.py): offline regression tests
+- [replay.py](replay.py): replay a debug log through the engine
